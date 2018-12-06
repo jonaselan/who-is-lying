@@ -6,7 +6,6 @@ use GraphQL;
 use App\User;
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Query;
-use GraphQL\Type\Definition\ResolveInfo;
 
 class AllUsersQuery extends Query
 {
@@ -19,7 +18,7 @@ class AllUsersQuery extends Query
         return Type::listOf(GraphQL::type('User'));
     }
 
-    public function resolve($root, $args, $context, ResolveInfo $info)
+    public function resolve($root, $args)
     {
         return User::all();
     }

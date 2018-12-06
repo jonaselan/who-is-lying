@@ -27,4 +27,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+//    TODO
+//    public function votedPostsToday(){
+
+//    public function votedPosts(){
+//        return $this->hasManyThrough(Post::class, Vote::class);
+//    }
+
+    public function createdPosts(){
+        return $this->hasMany(Post::class, 'author_id');
+    }
+
+    public function votes(){
+        return $this->hasMany(Vote::class, 'voter_id');
+    }
 }
