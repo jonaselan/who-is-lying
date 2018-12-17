@@ -25,11 +25,11 @@ class VoteType extends GraphQLType
                 'description' => 'The name of a user'
             ],
             'voter' => [
-                'type' => Type::listOf(GraphQL::type('User')),
+                'type' => Type::nonNull(GraphQL::type('User')),
                 'description' => 'Who made a vote'
             ],
             'post' => [
-                'type' => Type::listOf(GraphQL::type('Post')),
+                'type' => Type::nonNull(GraphQL::type('Post')),
                 'description' => 'Where the vote was made'
             ],
             'created_at' => [

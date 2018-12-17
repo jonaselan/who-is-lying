@@ -126,6 +126,7 @@ return [
             'query' => [
                 'allUsers' => \App\GraphQL\Query\AllUsersQuery::class,
                 'allPosts' => \App\GraphQL\Query\AllPostsQuery::class,
+                'allVotes' => \App\GraphQL\Query\AllVotesQuery::class,
             ],
             'mutation' => [
 
