@@ -12,8 +12,8 @@ class Post extends Model
         return $this->hasMany(Vote::class);
     }
 
-    public function createdBy(){
-        return $this->belongsTo(User::class, 'author_id');
+    public function author(){
+        return $this->belongsTo(User::class);
     }
 
 //    public function votedBy(){

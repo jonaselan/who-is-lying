@@ -125,6 +125,7 @@ return [
         'default' => [
             'query' => [
                 'allUsers' => \App\GraphQL\Query\AllUsersQuery::class,
+                'allPosts' => \App\GraphQL\Query\AllPostsQuery::class,
             ],
             'mutation' => [
 
@@ -181,7 +182,9 @@ return [
      * ]
      */
     'types' => [
-        \App\GraphQL\Type\UserType::class
+        'User' => \App\GraphQL\Type\UserType::class,
+        'Vote' => \App\GraphQL\Type\VoteType::class,
+        'Post' => \App\GraphQL\Type\PostType::class,
     ],
 
     /*
