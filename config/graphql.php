@@ -130,6 +130,7 @@ return [
                 'UserById' =>  \App\GraphQL\Query\UserByIdQuery::class
             ],
             'mutation' => [
+                'MakeVote' => \App\GraphQL\Mutation\MakeVoteMutation::class
 
             ]
         ]
