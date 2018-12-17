@@ -6,11 +6,11 @@ use GraphQL;
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Type as GraphQLType;
 
-class UserType extends GraphQLType
+class VoteType extends GraphQLType
 {
     protected $attributes = [
-        'name' => 'User',
-        'description' => 'A user'
+        'name' => 'Vote',
+        'description' => 'A Vote'
     ];
 
     public function fields()
@@ -18,23 +18,19 @@ class UserType extends GraphQLType
         return [
             'id' => [
                 'type' => Type::nonNull(Type::int()),
-                'description' => 'The id of a user'
+                'description' => 'The id of a post'
             ],
-            'name' => [
-                'type' => Type::nonNull(Type::string()),
+            'vote' => [
+                'type' => Type::nonNull(Type::boolean()),
                 'description' => 'The name of a user'
             ],
-            'email' => [
-                'type' => Type::nonNull(Type::string()),
-                'description' => 'The email address of a user'
+            'voter' => [
+                'type' => Type::listOf(GraphQL::type('User')),
+                'description' => 'Who made a vote'
             ],
-            'votes' => [
-                'type' => Type::listOf(GraphQL::type('Vote')),
-                'description' => 'The votes made by user'
-            ],
-            'createdPosts' => [
+            'post' => [
                 'type' => Type::listOf(GraphQL::type('Post')),
-                'description' => 'The created posts'
+                'description' => 'Where the vote was made'
             ],
             'created_at' => [
                 'type' => Type::string(),
