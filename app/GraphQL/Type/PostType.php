@@ -29,7 +29,7 @@ class PostType extends GraphQLType
                 'description' => 'The email address of a user'
             ],
             'author' => [
-                'type' => Type::listOf(GraphQL::type('User')),
+                'type' => Type::nonNull(GraphQL::type('User'))
             ],
             'votes' => [
                 'type' => Type::listOf(GraphQL::type('Vote')),
