@@ -25,6 +25,14 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('telescope:prune')->monthly();
+        
+        $schedule->command('daily:count_miss_votes')
+            ->dailyAt('23:59')
+            ->withoutOverlapping();
+        
+        $schedule->command('daily:count_correct_votes')
+            ->dailyAt('23:59')
+            ->withoutOverlapping();
     }
 
     /**

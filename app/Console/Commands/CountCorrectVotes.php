@@ -13,14 +13,14 @@ class CountCorrectVotes extends Command
      *
      * @var string
      */
-    protected $signature = 'daily:count-correct-votes';
+    protected $signature = 'daily:count_correct_votes';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Check all corrects votes made today';
 
     /**
      * Create a new command instance.
