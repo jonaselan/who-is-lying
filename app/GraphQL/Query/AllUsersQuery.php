@@ -18,8 +18,22 @@ class AllUsersQuery extends Query
         return Type::listOf(GraphQL::type('User'));
     }
 
+    public function args()
+    {
+        return [
+            'ranking' => [
+                'name' => 'ranking',
+                'type' => Type::boolean() 
+            ]
+        ];
+    }
+
     public function resolve($root, $args)
     {
-        return User::all();
+        return User::query()
+                ->when($args['ranking'] ?? false, function($q){
+                    $q->orderBy('points', 'desc'); 
+                })
+                ->get();
     }
 }
