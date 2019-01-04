@@ -64,7 +64,9 @@ return [
      * Any middleware for a specific 'graphql' schema
      */
     'middleware_schema' => [
-        'default' => [],
+        // 'default' => [
+            // 'auth:api' => \App\GraphQL\Mutation\MakeVoteMutation::class
+        // ],
     ],
 
     /*
@@ -130,8 +132,9 @@ return [
                 'UserById' =>  \App\GraphQL\Query\UserByIdQuery::class
             ],
             'mutation' => [
-                'MakeVote' => \App\GraphQL\Mutation\MakeVoteMutation::class
-
+                'MakeVote' => \App\GraphQL\Mutation\MakeVoteMutation::class,
+                'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
+                'logIn' => \App\GraphQL\Mutation\LogInMutation::class,
             ]
         ]
     ],
