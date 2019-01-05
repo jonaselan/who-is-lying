@@ -7,6 +7,7 @@ use Folklore\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use GraphQL;
+use App\Jobs\SendWelcomeEmail;
 
 class SignUpMutation extends Mutation
 {
@@ -47,6 +48,10 @@ class SignUpMutation extends Mutation
             'email' => $args['email'],
             'password' => bcrypt($args['password']),
         ]);
+
+        if ($user) {
+            dispatch(new SendWelcomeEmail($user));
+        }
 
         // generate token for user and return the token
         return auth()->login($user);
