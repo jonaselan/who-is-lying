@@ -3,6 +3,7 @@
 namespace App\GraphQL\Mutation;
 
 use App\User;
+use Tymon\JWTAuth\JWTAuth;
 use Folklore\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
@@ -42,12 +43,10 @@ class LogInMutation extends Mutation
           'password' => $args['password']
         ];
 
-        $token = auth()->attempt($credentials);
-
-        if (!$token) {
-          throw new \Exception('Unauthorized!');
+        if (! $token = auth()->attempt($credentials)) {
+            throw new \Exception('Unauthorized!');
         }
-
-        return $this->respondWithToken($token);
+        
+        return $token;
     }
 }

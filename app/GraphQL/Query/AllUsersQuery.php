@@ -13,11 +13,6 @@ class AllUsersQuery extends Query
         'name' => 'allUsers'
     ];
 
-    // public function authorize($root, $args, $currentUser)
-    // {
-    //     return false;
-    // }
-
     public function type()
     {
         return Type::listOf(GraphQL::type('User'));

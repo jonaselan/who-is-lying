@@ -64,9 +64,8 @@ return [
      * Any middleware for a specific 'graphql' schema
      */
     'middleware_schema' => [
-        // 'default' => [
-            // 'auth:api' => \App\GraphQL\Mutation\MakeVoteMutation::class
-        // ],
+        // por enquanto foi adicionado isso só na develop 
+        // 'default' => 'auth:api'
     ],
 
     /*
